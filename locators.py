@@ -2,45 +2,45 @@ from selenium.webdriver.common.by import By
 
 #Локаторы Яндекс Самокат вопросы о важном
 
-header_question_about_important = (By.XPATH, "//div[@id= 'accordion__heading-0' ]") #Заголовок "Вопросы о важном"
+header_question_about_important = (By.XPATH, "//div[@id= 'accordion__heading-0']") #Заголовок "Вопросы о важном"
 
 
-button_question_what_is_the_price = (By.XPATH, "//div[@id= 'accordion__heading-0' ]")  #Кнопка "Сколько это стоит? И как оплатить?"
+button_question_what_is_the_price = (By.XPATH, "//div[@id= 'accordion__heading-0']")  #Кнопка "Сколько это стоит? И как оплатить?"
 
-text_question_what_is_the_price = (By.XPATH, "//div[@id= 'accordion__panel-0' ]") #Текст ответа "Сколько это стоит? И как оплатить?"
+text_question_what_is_the_price = (By.ID, "accordion__panel-0") #Текст ответа "Сколько это стоит? И как оплатить?"
 
 
-button_question_several_scooters = (By.ID, "accordion__heading-1") #Кнопка "Хочу сразу несколько самокатов! Так можно?"
+button_question_several_scooters = (By.XPATH, "//div[@id= 'accordion__heading-1']") #Кнопка "Хочу сразу несколько самокатов! Так можно?"
 
 text_question_several_scooters = (By.ID, "accordion__panel-1") #Текст ответа "Хочу сразу несколько самокатов! Так можно?"
 
 
-button_question_rental_time = (By.ID, "accordion__heading-2") #Кнопка "Как рассчитывается время аренды?"
+button_question_rental_time = (By.XPATH, "//div[@id= 'accordion__heading-2']") #Кнопка "Как рассчитывается время аренды?"
 
 text_question_rental_time = (By.ID, "accordion__panel-2") #Текст ответа "Как рассчитывается время аренды?"
 
 
-button_question_scooter_today = (By.ID, "accordion__heading-3") #Кнопка "Можно ли заказать самокат прямо на сегодня?"
+button_question_scooter_today = (By.XPATH, "//div[@id= 'accordion__heading-3']") #Кнопка "Можно ли заказать самокат прямо на сегодня?"
 
 text_question_scooter_today = (By.ID, "accordion__panel-3") #Текст ответа "Можно ли заказать самокат прямо на сегодня?"
 
 
-button_question_extend_order = (By.ID, "accordion__heading-4") #Кнопка "Можно ли продлить заказ или вернуть самокат раньше?"
+button_question_extend_order = (By.XPATH, "//div[@id= 'accordion__heading-4']") #Кнопка "Можно ли продлить заказ или вернуть самокат раньше?"
 
 text_question_extend_order = (By.ID, "accordion__panel-4") #Текст ответа "Можно ли продлить заказ или вернуть самокат раньше?"
 
 
-button_question_charging_scooter = (By.ID, "accordion__heading-5") #Кнопка "Вы привозите зарядку вместе с самокатом?"
+button_question_charging_scooter = (By.XPATH, "//div[@id= 'accordion__heading-5']") #Кнопка "Вы привозите зарядку вместе с самокатом?"
 
 text_question_charging_scooter = (By.ID, "accordion__panel-5") #Текст ответа "Вы привозите зарядку вместе с самокатом?"
 
 
-button_question_order_concellation = (By.ID, "accordion__heading-6") #Кнопка "Можно ли отменить заказ?"
+button_question_order_concellation = (By.XPATH, "//div[@id= 'accordion__heading-6']") #Кнопка "Можно ли отменить заказ?"
 
 text_question_order_concellation = (By.ID, "accordion__panel-6") #Текст ответа "Можно ли отменить заказ?"
 
 
-button_question_life_outside_Moscow = (By.ID, "accordion__heading-7") #Кнопка "Я жизу за МКАДом, привезёте?"
+button_question_life_outside_Moscow = (By.XPATH, "//div[@id= 'accordion__heading-7']") #Кнопка "Я жизу за МКАДом, привезёте?"
 
 text_question_life_outside_Moscow = (By.ID, "accordion__panel-7") #Текст ответа "Я жизу за МКАДом, привезёте?"
 
@@ -90,3 +90,4 @@ botton_consent = (By.XPATH, "//button[text()='Да']")
 #Локаторы раздела "Заказ оформлен"
 
 header_order_placed = (By.XPATH, "//div[@class = 'Order_ModalHeader__3FDaJ']") #Заголовок "Заказ оформлен"
+

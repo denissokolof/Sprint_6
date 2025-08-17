@@ -1,9 +1,8 @@
-from selenium import webdriver
 from selenium.webdriver.common.by import By
+import allure
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from Sprint_6.locators import *
-import time
     
 # Заказ самоката
 class OrderScooter:
@@ -11,19 +10,17 @@ class OrderScooter:
     def __init__(self, driver):
         self.driver = driver
     
-    #Клик по верхней кнопке "Заказать" на главной странице
+    @allure.step("Клик по верхней кнопке 'Заказать' на главной странице")
     def click_on_top_button_order(self):
         self.driver.find_element(*top_button_order).click()
 
-    #Клик по нижней кнопке "Заказать" на главной странице
+    @allure.step("Клик по нижней кнопке 'Заказать' на главной странице")
     def click_on_bottom_button_order(self):
         element = self.driver.find_element(*bottom_button_order)
-        self.driver.execute_script("arguments[0].scrollIntoView();", element)
-        #WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located(element))
-        time.sleep(3)
-        
+        self.driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", element)   
         self.driver.find_element(*bottom_button_order).click()
-
+    
+    @allure.step("Первая часть регистрации")
     def login_part_one(self, name, surname, address, metro, telephon):
     
         #Поле "Имя"
@@ -51,7 +48,8 @@ class OrderScooter:
 
         #Клик по кнопке "Далее"
         self.driver.find_element(*next_button).click()
-
+    
+    @allure.step("Вторая часть регистрации")
     def login_part_two(self, data, comment):
 
         #Поле "Когда привезти самокат" 
@@ -72,7 +70,12 @@ class OrderScooter:
         #Клик по кнопке "Заказать"
         self.driver.find_element(*button_order).click()
     
-    #Клик по нижней кнопке "Заказать" на главной странице
+    @allure.step("Клик по нижней кнопке 'Заказать' на главной странице")
     def click_on_botton_consent(self):
         self.driver.find_element(*botton_consent).click()
+    
+    @allure.step("Текст заголовка 'Заказ оформлен'")
+    def get_header_order_placed(self):
+        return self.driver.find_element(*header_order_placed).text
+
 
