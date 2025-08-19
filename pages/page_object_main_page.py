@@ -1,30 +1,33 @@
 import allure
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.wait import WebDriverWait
 from Sprint_6.locators import *
+from Sprint_6.pages.page_object_base_page import *
 
 # Класс главная страница
-class MainPageScooter:
+class MainPageScooter(BasePage):
 
-    def __init__(self, driver):
-        self.driver = driver
+    @allure.step("метод ожидания загрузки кнопки Яндекс")
+    def wait_logo(self):
+        return super().wait_logo()
+    
+    @allure.step("метод получения URL")
+    def current_url(self):
+        return super().current_url()
 
     @allure.step("метод нажатия кнопки вопроса")
     def click_on_the_question_button(self, question_name_on_button):
-        element = self.driver.find_element(*question_name_on_button)
-        self.driver.execute_script("arguments[0].click();", element)
+        self.js_click(question_name_on_button)
 
     @allure.step("метод для получения текста элемента в заголовке")
     def get_text_inside_section(self, text_inside_section):
-        return self.driver.find_element(*text_inside_section).text
+        return self.find_element(text_inside_section).text
     
     @allure.step("метод нажатия в лого кнопки Яндекс")
     def click_on_button_logo_yandex(self):
-        self.driver.find_element(*button_yandex).click()
+        self.click(button_yandex)
 
     @allure.step("метод нажатия в лого кнопки Самокат")
     def click_on_button_logo_scooter(self):
-        self.driver.find_element(*button_scooter).click()
+        self.click(button_scooter)
 
     
 

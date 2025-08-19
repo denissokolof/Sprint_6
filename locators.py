@@ -64,6 +64,8 @@ adress_input = (By.XPATH, "//div/input[@placeholder= '* Адрес: куда п�
 
 metro_station_input = (By.XPATH, "//div/input[@placeholder= '* Станция метро']") #Поле "Станция метро"
 
+
+
 telephon_input = (By.XPATH, "//div/input[@placeholder= '* Телефон: на него позвонит курьер']") #Поле "Телефон" 
 
 next_button = (By.XPATH, "//div/button[text()='Далее']") #Кнопка "Далее" 

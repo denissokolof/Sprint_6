@@ -8,6 +8,33 @@ class BasePage:
 
     def __init__(self, driver):
         self.driver = driver
+
+    def find_element(self, locator):
+        return self.driver.find_element(*locator)
+    
+    def click(self, locator):
+        return self.driver.find_element(*locator).click()
+    
+    def wait_for_element(self, locator, timeout=5):
+        return WebDriverWait(self.driver, timeout).until(EC.visibility_of_any_elements_located(locator))
+    
+    def wait_and_click(self, locator, timeout=5):
+        element = WebDriverWait(self.driver, timeout).until(EC.element_to_be_clickable(locator))
+        element.click()
+    
+    def scroll_and_click(self, locator, timeout=5):
+        WebDriverWait(self.driver, timeout).until(EC.element_to_be_clickable(locator))
+        element = self.find_element(locator)
+        self.driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", element)   
+        self.click(locator)
+    
+    def js_click(self, locator, timeout=5):
+        WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located(locator))
+        element = self.find_element(locator)
+        self.driver.execute_script("arguments[0].click();", element)
+    
+    def current_url(self):
+        return self.driver.current_url
     
     @allure.step("метод ожидания загрузки заголовка раздела 'Вопросы о важном'")
     def wait_for_header_question(self, header_question_about_important):
